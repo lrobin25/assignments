@@ -1,0 +1,121 @@
+<script>
+ //Laura Robinson - this is as far as I could get.  
+ //
+ //
+// 1.  Write a function called sum that takes two parameters n1 and n2. 
+// Return the sum of the two numbers to the user. 
+//DONE
+
+var sum = function (n1,n2) {
+    return(n1 + n2);
+}
+;
+sum(3,4);
+
+
+// 2.  Write a function called isEven that takes one parameter n and 
+// logs to the console indicating if the number is even or odd.
+//DONE
+
+var isEven = function(n) {
+   if (n % 2 === 0) {
+    console.log("even") ;  
+    }    else console.log("odd");
+}      
+;
+
+//3.Write a function called inBetween that takes two parameters n1 and n2.
+
+//Write an if else statement to determine which argument is larger.
+//Save the larger argument to a variable named large.
+//Save the smaller argument to a variable named small.
+//Write a while loop that outputs each number inbetween small and large. 
+
+
+ var inBetween = function(n1, n2) {
+  if (n2 > n1) {
+        var large = n2;
+        var small = n1;
+         return(n2);
+        return(large);
+  }
+   else 
+      var small = n2;
+      var large = n1;
+     return(n1);
+     
+   while (i < large) { 
+    for (i = small+1; i < large; i ++) {
+        console.log(small);   
+
+    }
+}};
+
+
+
+//4. Write a function called hypotenuse that takes two parameters side1 and side2.
+
+//Program the formula for solving for the hypotenuse, that is a^2 + b^2 = c^2
+//Use the built in square root function: Math.sqrt(number)
+//Return the value with a return statement
+//Test your function to make sure that hypotenuse(3, 4) actually returns 5.
+//DONE
+
+
+var hypotenuse = function(side1, side2) {
+     
+    return Math.sqrt((side1 * side1) + (side2 * side2));
+    
+    };               
+
+
+//5.  Write a function called pyramid that takes one parameter n.
+
+//Create an array called pyramid.
+//Write a for loop to iterate between 0 and n.
+//At each step, push the string ‘@’ to the pyramid array using the push function.
+//At each step, log pyramid to the console. Use pyramid.join(‘’) to concatenate the contents of the pyramid array.
+//After the loop, write another for loop to iterate between n and 1 (backwards this time)
+//At each step, remove the last character of pyramid using pyramid.pop().
+//At each step, log pyramid to the console. Use pyramid.join(‘’) to concatenate the contents of the pyramid array.
+
+//var pyramid = 
+for (i = 0; i <= n; i++) {
+    
+}
+    
+
+    
+//?????
+
+//Write a function called windowSize.
+
+//Return an object that contains two keys, width and height. 
+//Set values of these keys to window.innerWidth, and window.innerHeight respectively.
+ 
+var windowSize = function()  { 
+       var window = new Object ()
+       window.width = this width;
+       window.height = this height; {
+    
+  windowSize.width = window.innerWidth;
+  windowSize.height = window.innerHeight; 
+    
+//}
+
+//Write a function called newTab.
+
+//This function should create a new window to https://www.google.com (Links to an external site.)
+ function newTab() {
+    window.open("https://www.google.com", "topFrame");
+}
+ ;
+ 
+ 
+ 
+  
+    
+ </script>   ` 
+
+
+
