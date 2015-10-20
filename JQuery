@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>JQ Assignment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+   
+<script>                 
+   
+    //NOTE TO SETH: Everything should work except replacing phone number WITH formatting, and the 10
+    //digit limit ...
+    
+   
+   
+// start valdation script 
+    $(document).ready(function(){
+        
+//name empty?
+//channge border to red by adding class
+$('#button').click(function(){
+         var name = $('#namebox').val();
+            if (name ==='') {
+        $('#namebox').addClass('red');
+        $('#namebox').removeClass('green');       
+    } 
+      else {
+        $('#addressbox').addClass('green'); 
+        $('#addressbox').removeClass('red');
+        }     
+    }); // end anonymous name funtion 
+
+//address empty?   
+$('#button').click(function(){
+         var address = $('#addressbox').val();
+            if (address ==='') {
+        $('#addressbox').addClass('red');
+        $('#addressbox').removeClass('green');
+    }
+        else {
+        $('#addressbox').addClass('green'); 
+        $('#addressbox').removeClass('red');
+        }    
+    }); // end address empty?
+
+//phone empty?
+$('#button').click(function(){
+         var phone = $('#phonebox').val();
+            if (phone ==='') {
+        $('#phonebox').addClass('red');
+        $('#phonebox').removeClass('green');;
+    }   
+    });
+//email empty or has @ symbol?
+$('#button').click(function(){
+         var email = $('#emailbox').val();
+            if (email ==='' ) {
+        $('#emailbox').addClass('red');
+        $('#emailbox').removeClass('green');
+    }   
+   }); 
+
+//PHONE:  first, check for phone length
+ $("input[name='phone']").keyup(function() {
+    var phonelength = this.value.length;              
+     if (phonelength < 14) {
+        $('#phonebox').addClass('red'); 
+            }
+            else {
+                $('#phonebox').removeClass('red');
+                $('#phonebox').addClass('green');;
+            }            
+
+//second, format phone number THIS SHOULD ONLY KICK OFF IF THE NUMBER OF DIGITS IS CORRECT... 
+$('#button').click(function(){
+    var phone = $('#phonebox').val();
+    var newphone = '(' + phone.substr(0,3) + ')' + ' ' + phone.substr(3,3) + '-' + phone.substr(6,4);
+ 
+ // now replace phone with newphone on input form...and turn box to green
+ 
+   $('#phonebox').replaceWith(newphone); 
+        //format newphone... this does not work
+    $('#phonebox').removeClass('red');
+    $('#phonebox').addClass('green');
+    $('#newphone').addClass('green');
+    }); //end phone reformat
+ }); //end phone keup counter  
+     
+ // check for @ symbol   
+$('#button').click(function(){
+    var atsymbol = $('#emailbox').val();
+        var n =  atsymbol.indexOf("@");
+           if (n < 0) {
+            $('#emailbox').addClass('red');
+            $('#emailbox').removeClass('green');      
+    } 
+            else {
+                $('#emailbox').addClass('green'); 
+                $('#emailbox').removeClass('red');      
+         }
+   
+}); // end of email
+});  // end document ready 
+  
+    // version 2 - create a function and run it like in class; does not work
+    
+    //function validateName() {
+       // $('#inputbox').addClass('red');
+      // console.log("there are some errors on your form");
+    // run function
+    //}; 
+    
+    // run function; 
+    
+      //  $('button').on('mouseover',validateName);
+   
+   // });
+    // end document ready
+</script>
+                
+<style>
+.green {
+    border:solid 2px green;
+}
+
+.red {
+    border: solid 3px red;
+}    
+</style>       
+             
+</head>
+
+<body>
+	   
+<div class="content"> 
+    <h1>Contact form in JQ - Laura Robinson</h1>		
+    <form action="#" method="get">
+        <fieldset class="main"><legend>Contact Form</legend>                
+            <p> <label for="name" class="namelabel"> Name </label> </p>
+            <p><input type="text" name="name" id="namebox" class="green" ></p>
+           
+            <p> <label for="address" class="addresslabel"> Address </label> </p>
+            <p><input type="text" name="address" id="addressbox" class="green"  ></p>
+            
+            <p> <label for="phone" class="phonelabel"> Phone Number </label> </p>
+            <p><input type="text" name="phone" id="phonebox" class="green" ></p>
+            
+            <p> <label for="email" class="emaillabel"> Email Address </label> </p>
+            <p><input type="text" name="email" id="emailbox" class="green" ></p>
+            
+            <p><input name="button" type="button" id="button" class='button' value="Submit"></p>
+        </fieldset>
+    </form>		 
+</div>
+	 
+
+</body>
+</html>
