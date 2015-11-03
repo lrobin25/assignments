@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title> Bing AJAX Assignment </title>
+    <meta charset="UTF-8">		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		 		
+<script>
+	
+$(document).ready(function(){		
+    $('input').on('keyup', function (evt) {
+        getBing($(this).val());	
+        
+        // inputvalue = $(this).val(); 
+        // console.log(inputvalue);
+    });
+
+    function getBing(query) {
+
+        $.ajax({
+            url: "http://api.bing.net/qson.aspx?Query=" + 
+            	encodeURIComponent(query) + 
+            	"&JsonType=callback&JsonCallback=?",
+            type: 'GET',
+            dataType: 'jsonp'
+            })
+            
+            .done(function(response){
+                
+                // searchSuggestion.Section from Bing API / JSONlint
+        
+            var suggestion = response.SearchSuggestion.Section;
+			var html = $('<div><h2>Search results for ' + query + ':</h2></div>');
+			$('#results').empty().append(html);
+
+			$.each(response.SearchSuggestion.Section, function (i, val) {
+
+                    //console.log("suggestion: " + val.Text);
+                    
+                    suggestion.push(val.Text);
+                    
+                    // go to another window whan user clicks on a suggestion
+
+                	$('#results').append('<div>' + "<a href='http://www.bing.com/search?q=" 
+                	+ 	encodeURIComponent(val.Text) + "'" + 
+                	" onClick='window.open(this.href);return false'" + 
+                	">" + val.Text + '</a></div>');           	
+                    });
+            });
+	}
+});
+</script>	
+		
+</head>
+
+<body>
+    <div class="search-bar">
+        <h2> Ajax Assignment - Laura Robinson </h2>
+     
+    
+        <form id="searchform" method="post" action="">
+            <input  type="text" name="search" id="search" placeholder="Search Bing"  maxlength="50" size="50">
+            <br><br>
+        </form>
+            
+    </div>        
+    <div id=results>
+    </div>
+</body>
+</html>
